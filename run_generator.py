@@ -68,7 +68,7 @@ def style_mixing_example(network_pkl, row_seeds, col_seeds, truncation_psi, col_
 
     print('Saving images...')
     for (row_seed, col_seed), image in image_dict.items():
-        PIL.Image.fromarray(image, 'RGB').save(dnnlib.make_run_dir_path('%d-%d.png' % (row_seed, col_seed)))
+        PIL.Image.fromarray(image, 'RGB').save(dnnlib.make_run_dir_path('%d-%d.jpg' % (row_seed, col_seed)))
 
     print('Saving image grid...')
     _N, _C, H, W = Gs.output_shape
@@ -83,7 +83,7 @@ def style_mixing_example(network_pkl, row_seeds, col_seeds, truncation_psi, col_
             if col_seed is None:
                 key = (row_seed, row_seed)
             canvas.paste(PIL.Image.fromarray(image_dict[key], 'RGB'), (W * col_idx, H * row_idx))
-    canvas.save(dnnlib.make_run_dir_path('grid.png'))
+    canvas.save(dnnlib.make_run_dir_path('grid.jpg'))
 
 #----------------------------------------------------------------------------
 
